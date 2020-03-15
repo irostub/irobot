@@ -15,6 +15,9 @@ async def on_ready():
 @client.event
 async def on_message(message):
     '''명령어 차트'''
+    if str(message.content) == "이로야":
+        await message.channel.send("왜 부르셨죠?")
+
     if message.content.startswith("이로야 메뉴판"):
         await message.channel.send(embed =
                         discord.Embed(title="~이로봇 메뉴판~", description="1.이로야 바보\n    호에에에...저한테 왜그러세요\n2.이로야 뭐해?\n\t글쎄요? 뭘 하고있을까요?\n3.이로야 방송\n\t방송의 소개는 요기에서!",color=0xfcffb0))
@@ -68,7 +71,6 @@ async def on_message(message):
                         await message.channel.send(message.channel,embed =
                         discord.Embed(title="레벨 업!" , description="레벨이 올랐습니다. \n현재 레벨 : "+ str(sheet["C"+ str(i)].value)+"\n경험치" + str(sheet["B"+str(i)].value),color=0xfcffb0))
                     file.save("level.xlsx")
-                    discord
                     break
 
             '''유저가 신규 채팅'''
