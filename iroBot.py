@@ -124,7 +124,7 @@ async def on_message(message):
         if ran == 2:
             await message.channel.send("RR3라는 녀석을 어떻게 처리할까 계획을 세우고있었어요 <:emoji_42:673959929605783596>")
         if ran == 3:
-            await message.channel.send("그래 그녀석은 여기를 이렇게 묶고 요렇게 해서 미국으로 보내줘야지..(중얼중얼) <:killerdue:604635042014035968>")
+            await message.channel.send("그래 그녀석은 여기를 이렇게 묶고 요렇게 해서 미국으로 보내줘야지..(중얼중얼) <:yandereIro:646691446086434835>")
         if ran == 4:
             await message.channel.send("주인님이 공부하라고한 아재개그? 라는걸 외우고 있었어요.\n음...어디보자 택시기사가 좋아하는 동물은 뭘까요???\n\n||타이거<:__:556410154434691097>||")
 
