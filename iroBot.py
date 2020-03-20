@@ -2,7 +2,6 @@ import discord
 import openpyxl
 import asyncio
 import random
-import sys
 
 client = discord.Client()
 
@@ -16,29 +15,34 @@ async def on_ready():
 """메세지 받고 응답"""
 @client.event
 async def on_message(message):
+
     '''명령어 차트'''
-    if str(message.content) == "이로야":
-        ran3 = random.randint(0,2)
-        if ran3 == 0:
-            await message.channel.send("왜 부르셨죠? <:what:628253366774136852>")
-        if ran3 == 1:
-            await message.channel.send("아..아앗 잠시만! <:ueeeeeeeeAA:645990546426429450> \n덕분에 수레를 탔네요. 고마워요.<:zombiro:624176632424300554>")
-        if ran3 == 2:
-            await message.channel.send("...<:hate:623830011874639872>")
+    if message.content.startswith("이로야"):
 
-    if str(message.content) == "이로야 메뉴판":
-        embed = discord.Embed(title="~이로봇 메뉴판~",
-                              description="부르셨나요 주인님? 무엇을 주문하시겠어요? \n아래의 메뉴에서 골라주세요.",
-                              color=0xfcffb0)
-        embed.add_field(name="설마 아니죠..?", value="이로야 바보", inline=False)
-        embed.add_field(name="궁금해요!", value="이로야 뭐해?", inline=False)
-        embed.add_field(name="방송", value="이로야 방송", inline=False)
-        embed.add_field(name="레벨링 시스템", value="이로야 레벨", inline=False)
-        embed.add_field(name="학습 시스템", value="이로야 학습 입력 출력", inline=False)
-        embed.add_field(name="~~자폭 시퀸스~~", value="이로야 ~~자폭해~~", inline=False)
-        await message.channel.send(embed = embed)
+        '''명령어 : 이로야'''
+        if str(message.content) == "이로야":
+            ran3 = random.randint(0, 2)
+            if ran3 == 0:
+                await message.channel.send("왜 부르셨죠? <:what:628253366774136852>")
+            if ran3 == 1:
+                await message.channel.send(
+                    "아..아앗 잠시만! <:ueeeeeeeeAA:645990546426429450> \n덕분에 수레를 탔네요. 고마워요.<:zombiro:624176632424300554>")
+            if ran3 == 2:
+                await message.channel.send("...<:hate:623830011874639872>")
+        else:
+            if "메뉴판" in message.content:
+                embed = discord.Embed(title="~이로봇 메뉴판~",
+                                      description="부르셨나요 주인님? 무엇을 주문하시겠어요? \n아래의 메뉴에서 골라주세요.",
+                                      color=0xfcffb0)
+                embed.add_field(name="설마 아니죠..?", value="이로야 바보", inline=False)
+                embed.add_field(name="궁금해요!", value="이로야 뭐해?", inline=False)
+                embed.add_field(name="방송", value="이로야 방송", inline=False)
+                embed.add_field(name="레벨링 시스템", value="이로야 레벨", inline=False)
+                embed.add_field(name="학습 시스템", value="이로야 학습 입력 출력", inline=False)
+                embed.add_field(name="~~자폭 시퀸스~~", value="이로야 ~~자폭해~~", inline=False)
+                await message.channel.send(embed = embed)
 
-    if message.content == "이로야 자폭해":
+    if "자폭" in message.content:
         await message.channel.send("*** 자폭 시퀸스를 작동시킵니까 Y/N ***")
         ctx = message.author
         try:
@@ -62,7 +66,7 @@ async def on_message(message):
 ```
 """)
                 ran = random.randint(1,100)
-                if ran >= 99:
+                if ran >= 95:
                     await client.logout()
                     client.close()
                 else:
@@ -82,7 +86,6 @@ async def on_message(message):
                 await message.channel.send("자폭 시퀸스 가동을 취소합니다.")
         except asyncio.TimeoutError:
             await message.channel.send("입력 시간이 초과되었습니다. 자폭 시퀸스 가동을 취소합니다.")
-
 
     if "이로야" in message.content:
         if "바보" in message.content:
@@ -104,7 +107,6 @@ async def on_message(message):
             if ran == 6:
                 await message.channel.send("너무해오..<:TwT:625349630317821972>")
 
-    if "이로야" in message.content:
         if "사랑" in message.content:
             ran = random.randint(0,1)
             if ran == 0:
@@ -114,6 +116,12 @@ async def on_message(message):
 
         if "너무해" in message.content:
             await message.channel.send("그러게 왜 그러셨어요. 이제부터 잘 해주세요!")
+
+        if "물어" in message.content:
+            await message.channel.send("컁! 으컁컁! 이리왓!")
+
+        if "덤벼" in message.content:
+            await message.channel.send("인간주제에..감히 내게 덤비라는 말을 할 수 있다니.\n ||"+str(message.author).split("#")[0]+"님..죄송해여어어..주인님 죄송합니다..이로봇은 굴복하고 말았어요..<:TwT:625349630317821972> ||")
 
     if message.content.startswith("이로야 뭐해"):
         ran = random.randint(0,4)
