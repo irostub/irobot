@@ -3,6 +3,7 @@ import discord
 import random
 import asyncio
 
+
 class ReplyCommands(commands.Cog):
     def __init__(self, client):
         self.client = client
@@ -12,6 +13,13 @@ class ReplyCommands(commands.Cog):
     #     if message.content.startswith('text'):
     #         await message.channel.send("text")
 
+    @commands.command(name='<Undefined>', aliases=['Undefined'])
+    async def undefcall(self, ctx):
+        await ctx.channel.send("이걸 제게 말했다구요? 정말 할게 없었나보네오<:_tyeayea:619838526074126346> 보상으로 이곳에 당신이 원하는 특수대사를 넣어드리죠. 주인님께 말해주세요.")
+
+    @commands.command(name='이로', aliases=['이로님', '이로야'])
+    async def selfcall(self, ctx):
+        await ctx.channel.send("제 주인님은 iro_bound (입이 멋대로..움직여버렷:carrot::carrot:) 킹갓제네럴엠페러충무공마제스티하이퍼울트라판타스틱익스트림지니어스해요<:TwT:625349630317821972> ")
 
     @commands.command(name = '자폭', aliases = ['자폭해','사라져','미워'])
     async def destruction(self, ctx):
@@ -66,4 +74,4 @@ class ReplyCommands(commands.Cog):
 
 
 def setup(client):
-    client.add_cog(ReplyListener(client))
+    client.add_cog(ReplyCommands(client))
