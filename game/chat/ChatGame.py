@@ -31,7 +31,7 @@ class ChatGame(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, ctx):
         if ctx.content.startswith("") and not ctx.author.bot:
-            self.sql = "select * from chat_player where id = %s;"
+            self.sql = "select * from user where id = %s;"
             rows_count = self.curs.execute(self.sql,ctx.author.id)
             row = self.curs.fetchall()
             totalSec = int((datetime.datetime.utcnow() - epoch).total_seconds())
@@ -41,20 +41,18 @@ class ChatGame(commands.Cog):
                 level = int(row[0][2])
                 date = row[0][3]
 
-                time_diff = int(totalSec - date)
-                print(time_diff)
-                print(totalSec)
-                print(date)
+                time_diff = int(totalSec - int(date))
+
                 if time_diff >= 10:
                     if level <= 30:
                         exp += 5
                         if exp < self.expTable[level-1]:
-                            self.sql = "update chat_player set exp = " + str(exp) + ", date = "+ str(totalSec) +" where id = " + id + ";"
+                            self.sql = "update user set exp = " + str(exp) + ", date = "+ str(totalSec) +" where id = " + id + ";"
                             self.curs.execute(self.sql)
                             self.conn.commit()
                         else : #exp >= self.expTable[level-1]
                             level += 1
-                            self.sql = "update chat_player set exp = " + str(exp) + ",level = " + str(
+                            self.sql = "update user set exp = " + str(exp) + ",level = " + str(
                                 level) +", date = "+str(totalSec)+ " where id = " + id + ";"
                             self.curs.execute(self.sql)
                             self.conn.commit()
@@ -63,7 +61,7 @@ class ChatGame(commands.Cog):
 
 
             if rows_count <= 0:
-                self.sql = "insert into chat_player values("+str(ctx.author.id)+",0,1,"+str(totalSec)+");"
+                self.sql = "insert into user values("+str(ctx.author.id)+",0,1,"+str(totalSec)+");"
                 self.curs.execute(self.sql)
                 self.conn.commit()
 
