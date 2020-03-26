@@ -3,6 +3,7 @@ import discord
 import pymysql
 
 class Learn(commands.Cog):
+    db = []
 
     def __init__(self, client):
         self.client = client
@@ -37,7 +38,9 @@ class Learn(commands.Cog):
             self.curs.execute(self.sql, (id, teacher, input, output))
             self.conn.commit()
 
-
+    # @commands.command(db)
+    # async def addf(self,ctx):
+    #     a=0
 
 
 def setup(client):
