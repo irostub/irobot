@@ -16,17 +16,17 @@ class HelpCommends(commands.Cog):
         embed.add_field(name="`학습`", value="이로에게 말을 가르쳐주세요!", inline=False)
         embed.add_field(name="`채팅`", value="채팅을 쳐서 레벨을 올려볼까요?", inline=False)
         embed.add_field(name="`강화`", value="무기를 강화해보자구요!", inline=False)
-        embed.set_footer(text="@irobot made by iro_bound")
+        embed.set_footer(text="@irobot made by irostub")
         await ctx.channel.send(embed = embed)
 
     @helpCommand.command(name='학습')
     async def helpCommand_study(self, ctx):
         embed=discord.Embed(title="~학습 기능~",description="제게 뭘 가르치고 싶으신가요? 이상한건 넣지말아주세요? 아시죠? "
                                                         "학습시킨 대사는 대화 기능을 통해 사용할 수 있어요!\n`!이로 학습 [명령어] [sub]`", color=0xffff80)
-        embed.add_field(name="`학습 <입력대사> <출력대사>`", value="가르치고 싶은 말을 <입력대사> 에 그 대답을 <출력대사> 에 넣어주세요", inline=False)
+        embed.add_field(name="`<입력대사> , <출력대사>`", value="가르치고 싶은 말을 <입력대사> 에 그 대답을 <출력대사> 에 넣어주세요! ','를 빼먹으시면 안돼요!", inline=False)
         embed.add_field(name="`망각 <잊을대사>`", value="잊게 하고싶은 말을 <잊을대사> 에 넣어주세요. 자신이 학습시킨 대사만 잊게 할 수 있어요", inline=False)
         embed.add_field(name="`기록`", value="자신이 학습시킨 대사의 목록이에요!", inline=False)
-        embed.set_footer(text="@irobot made by iro_bound")
+        embed.set_footer(text="@irobot made by irostub")
         await ctx.channel.send(embed=embed)
 
     @helpCommand.command(name='대화')
@@ -36,7 +36,7 @@ class HelpCommends(commands.Cog):
         embed.add_field(name="`이로`", value="저요? 제 주인님이요?", inline=False)
         embed.add_field(name="`<Undefined>`", value="특수 대사 3", inline=False)
         embed.add_field(name="`<Undefined>`", value="특수 대사 4", inline=False)
-        embed.set_footer(text="@irobot made by iro_bound")
+        embed.set_footer(text="@irobot made by irostub")
         await ctx.channel.send(embed=embed)
 
     @helpCommand.command(name='채팅')
@@ -47,7 +47,7 @@ class HelpCommends(commands.Cog):
         embed.add_field(name="`랭킹`", value="화려한 디코력을 확인해볼까요?", inline=False)
         embed.add_field(name="`검색 <ID>`", value="<ID>의 디코력을 확인할 수 있어요", inline=False)
         embed.add_field(name="`시스템`", value="현재 채팅레벨 기능의 설정이에요", inline=False)
-        embed.set_footer(text="@irobot made by iro_bound")
+        embed.set_footer(text="@irobot made by irostub")
         await ctx.channel.send(embed=embed)
 
     @helpCommand.command(name='강화')
@@ -60,7 +60,7 @@ class HelpCommends(commands.Cog):
         embed.add_field(name="`확증`", value="확률 증가권을 사용할 수 있어요. 중첩은 안된답니다!", inline=False)
         embed.add_field(name="`검색 <ID>`", value="<ID>의 현재 강화 상태정보를 보여줘요", inline=False)
         embed.add_field(name="`전당`", value="누가 이 명예의 전당에 오를 수 있을까요?", inline=False)
-        embed.set_footer(text="@irobot made by iro_bound")
+        embed.set_footer(text="@irobot made by irostub")
         await ctx.channel.send(embed=embed)
 
     # @commands.has_any_role(command str)
