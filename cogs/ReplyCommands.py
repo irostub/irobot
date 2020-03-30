@@ -12,6 +12,17 @@ class ReplyCommands(commands.Cog):
     # async def on_message(self, message):
     #     if message.content.startswith('text'):
     #         await message.channel.send("text")
+    @commands.command(name='정지')
+    async def outd(self, ctx):
+        await ctx.channel.send(
+            "이로봇 관짝 열고 퇴근합니다.")
+        await self.client.logout()
+        await self.client.close()
+
+    @commands.command(name='물어')
+    async def outds(self, ctx):
+        await ctx.channel.send(
+            "으그으으...으르르..컁! 건들이지 마세요! 으르..")
 
     @commands.command(name='<Undefined>', aliases=['Undefined'])
     async def undefcall(self, ctx):
