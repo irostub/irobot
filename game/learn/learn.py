@@ -3,7 +3,6 @@ import discord
 import pymysql
 
 class Learn(commands.Cog):
-    db = []
 
     def __init__(self, client):
         self.client = client
@@ -34,9 +33,11 @@ class Learn(commands.Cog):
         if rows_count > 0:
             await ctx.channel.send("이미 알고있던거 있음")
         else:
-            self.sql = "insert into learn values(%s ,%s ,%s ,%s); "
-            self.curs.execute(self.sql, (id, teacher, input, output))
+            print("here")
+            self.sql = "insert into learn values(%s ,%s ,%s ,%s);"
+            self.curs.execute(self.sql, (id, input,teacher,  output))
             self.conn.commit()
+            await ctx.channel.send("잘배웠어요, 고마워요. 휴먼!\n입력 : "+input+"\n출력 : "+output)
 
     # @commands.command(db)
     # async def addf(self,ctx):
