@@ -235,4 +235,15 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/venv,python,pycharm,windows
-/settings.py
+
+#VScode
+.vscode/
+
+
+#temp
+chatLeveling.dummy
+dialog.dummy
+settings.py
+test.py
+self_destruction.jpg
+.pre-commit-config.yaml
